@@ -1,20 +1,25 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
+typedef struct linearlist llist_t;
+typedef struct number num_t;
+
+typedef struct nummber{
+    int num;
+    num_t *next;
+};
+
 typedef struct linearlist{
-    char *key;
+    char prime;
     int value;
-    unsigned long *next;
-}llist_t;
+    llist_t *next;
+};
 
-llist_t set_linear(void){
-    llist_t list;
-    llist_t child;
-
-    list.key = "tomohiro";
-    list.value = 1;
-
-    return list;
+void set_linear(llist_t *list){
+    list->prime = 2;
+    list->value = 1;
+    list->next = NULL;
 }
 
 void append_list(llist_t *list,int value){
@@ -43,7 +48,7 @@ int main(void){
     llist_t list;
 
     printf("hello world\n");
-    list = set_linear();
+    set_linear(&list);
     print_list(&list);
     append_list(&list,5);
     append_list(&list,6);
